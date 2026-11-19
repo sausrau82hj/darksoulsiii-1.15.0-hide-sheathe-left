@@ -1,4 +1,4 @@
-# HideSheathedLeft — Dark Souls III 1.15.0
+# HideStowedHandItem — Dark Souls III 1.15.0
 
 **[中文](#中文) · [English](#english)**
 
