@@ -74,11 +74,23 @@ To only switch the effect off, set `HideLeftHang=0` and `HideRightHang=0` in the
 * **NPCs hide the item too.** The parameter table is shared between the player and NPCs, and the parking dummy is valid for every character model, so an NPC in the same stance simply does not draw its sheathed item instead of producing artefacts. Player-only behaviour would require patching the engine's attach resolver.
 * After another mod replaces files in `chr\`, run the `parkdir` command again; already-patched files are skipped.
 
+## Source
+
+`src\` holds the C++ sources of both DLLs, `validator\` the C# source of `tools\ds3tae.exe`. Rebuild from a VS x64 developer prompt:
+
+```
+cl /nologo /O2 /EHsc /std:c++17 /DNDEBUG /LD src\HideSheathedLeft.cpp /Fe:HideSheathedLeft.dll /link /INCREMENTAL:NO
+cl /nologo /O2 /EHsc /std:c++17 /DNDEBUG /LD src\xinput1_3_proxy.cpp /Fe:xinput1_3.dll /link /DEF:src\xinput1_3_proxy.def /INCREMENTAL:NO
+dotnet build validator\validator.csproj
+```
+
 ## Repository layout
 
 ```
 HideSheathedLeft.dll / .ini   mod core and its configuration
 xinput1_3.dll                 loader shell (forwards the system XInput)
+src\                          C++ sources of both DLLs
+validator\                    C# source of tools\ds3tae.exe
 tools\ds3tae.exe              patch / verify / strip tool (+ SoulsFormats.dll)
 docs\MANUAL-INSTALL.txt       step-by-step manual install
 ```

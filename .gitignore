@@ -1,2 +1,6 @@
 # packaged zip (not needed in git)
 *.zip
+
+# build output
+obj/
+bin/

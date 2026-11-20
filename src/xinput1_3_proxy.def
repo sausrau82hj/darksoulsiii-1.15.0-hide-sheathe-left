@@ -1,0 +1,12 @@
+LIBRARY xinput1_3
+
+; Export table mirrored from the system xinput1_3.dll (ordinal / name pairs)
+EXPORTS
+    DllMain=ProxyDllMainEntry @1
+    XInputGetState @2
+    XInputSetState @3
+    XInputGetCapabilities @4
+    XInputEnable @5
+    XInputGetDSoundAudioDeviceGuids @6
+    XInputGetBatteryInformation @7
+    XInputGetKeystroke @8
